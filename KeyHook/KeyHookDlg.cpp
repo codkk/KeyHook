@@ -23,6 +23,11 @@ CKeyHookDlg::CKeyHookDlg(CWnd* pParent /*=NULL*/)
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }
 
+CKeyHookDlg::~CKeyHookDlg()
+{
+	UninstallLaunch();
+}
+
 void CKeyHookDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialogEx::DoDataExchange(pDX);

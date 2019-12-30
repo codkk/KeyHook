@@ -75,6 +75,12 @@ DllExport void RegistMsg(HWND hwnd, long msg)
 	hWnd = hwnd;
 	Msg = msg;
 }
+DllExport void UninstallLaunch()
+{
+	if (Hook != NULL)
+		UnhookWindowsHookEx(Hook);
+	Hook = NULL;
+}
 LRESULT CALLBACK LauncherHook(int nCode, WPARAM wParam, LPARAM lParam)
 {
 	LRESULT Result = CallNextHookEx(Hook, nCode, wParam, lParam);

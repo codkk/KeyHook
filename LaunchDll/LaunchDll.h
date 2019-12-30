@@ -30,5 +30,6 @@ long Msg = 0;
 bool shift = false;
 HHOOK Hook;
 DllExport void RegistMsg(HWND hwnd, long Msg);
+DllExport void UninstallLaunch();
 LRESULT CALLBACK LauncherHook(int nCode, WPARAM wParam, LPARAM lParam);
 void SaveLog(char* c);
