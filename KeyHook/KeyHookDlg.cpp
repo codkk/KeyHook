@@ -55,7 +55,10 @@ BOOL CKeyHookDlg::OnInitDialog()
 
 	// TODO: 在此添加额外的初始化代码
 	RegistMsg(this->m_hWnd, WM_KEYDATA);
-	InstallLaunchEv();
+	bool ret = InstallLaunchEv();
+	if (!ret) {
+		AfxMessageBox("安装钩子失败");
+	}
 	return TRUE;  // 除非将焦点设置到控件，否则返回 TRUE
 }
 

@@ -13,7 +13,7 @@
 // CLaunchDllApp
 // 有关此类实现的信息，请参阅 LaunchDll.cpp
 //
-DllExport void WINAPI InstallLaunchEv();
+
 class CLaunchDllApp : public CWinApp
 {
 public:
@@ -34,7 +34,8 @@ bool shift = false;
 HHOOK Hook;
 #pragma data_seg()
 #pragma comment(linker, "/SECTION:YCIShared,rws")
-DllExport void RegistMsg(HWND hwnd, long Msg);
-DllExport void UninstallLaunch();
+DllExport bool WINAPI InstallLaunchEv();        //安装钩子
+DllExport void RegistMsg(HWND hwnd, long Msg);  //注册句柄和消息
+DllExport void UninstallLaunch();				//卸载钩子
 LRESULT CALLBACK LauncherHook(int nCode, WPARAM wParam, LPARAM lParam);
 void SaveLog(char* c);

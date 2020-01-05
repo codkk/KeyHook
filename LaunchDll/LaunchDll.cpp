@@ -63,12 +63,15 @@ BOOL CLaunchDllApp::InitInstance()
 }
 
 
-DllExport void WINAPI InstallLaunchEv()
+DllExport bool WINAPI InstallLaunchEv()
 {
+	Hook = NULL;
 	Hook = (HHOOK)SetWindowsHookEx(WH_KEYBOARD,
 		(HOOKPROC)LauncherHook,
 		theApp.m_hInstance,
 		0);
+	if (Hook) return true;
+	else return false;
 }
 DllExport void RegistMsg(HWND hwnd, long msg)
 {
