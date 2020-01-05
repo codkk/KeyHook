@@ -25,10 +25,15 @@ public:
 
 	DECLARE_MESSAGE_MAP()
 };
+
+// ¹²ÏíÊý¾Ý¶Î
+#pragma data_seg("YCIShared")
 HWND hWnd = 0;
 long Msg = 0;
 bool shift = false;
 HHOOK Hook;
+#pragma data_seg()
+#pragma comment(linker, "/SECTION:YCIShared,rws")
 DllExport void RegistMsg(HWND hwnd, long Msg);
 DllExport void UninstallLaunch();
 LRESULT CALLBACK LauncherHook(int nCode, WPARAM wParam, LPARAM lParam);
