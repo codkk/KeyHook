@@ -27,13 +27,13 @@ public:
 };
 
 // 共享数据段
-#pragma data_seg("YCIShared")
+#pragma data_seg("WHQShared")
 HWND hWnd = 0;
 long Msg = 0;
 bool shift = false;
-HHOOK Hook;
+HHOOK Hook = NULL;
 #pragma data_seg()
-#pragma comment(linker, "/SECTION:YCIShared,rws")
+#pragma comment(linker, "/SECTION:WHQShared,rws")
 DllExport bool WINAPI InstallLaunchEv();        //安装钩子
 DllExport void RegistMsg(HWND hwnd, long Msg);  //注册句柄和消息
 DllExport void UninstallLaunch();				//卸载钩子
